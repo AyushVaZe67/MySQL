@@ -23,10 +23,20 @@ class Flipkart:
                 sys.exit(1000)
 
     def register(self):
-        print("Registration logic goes here.")
+        name = input('Enter name : ')
+        email = input('Enter email : ')
+        password = input('Enter password : ')
+
+        response = self.db.register(name,email,password)
+
+        if response:
+            print("Registration successful")
+        else:
+            print('Registration fails')
+        self.menu()
 
     def login(self):
         print("Login logic goes here.")
 
 # Run the app
-Flipkart()
+obj = Flipkart()
