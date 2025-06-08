@@ -26,3 +26,10 @@ class DBHelper:
             return -1
         else:
             return 1
+
+    def search(self,email,password):
+        self.mycursor.execute("""
+            SELECT * FROM users WHERE email LIKE '{}' AND password LIKE '{}'
+        """.format(email,password))
+        data = self.mycursor.fetchall()
+        return data

@@ -36,7 +36,17 @@ class Flipkart:
         self.menu()
 
     def login(self):
-        print("Login logic goes here.")
+        email = input('Enter email : ')
+        password = input('Enter password : ')
+
+        data = self.db.search(email,password)
+
+        if len(data) == 0:
+            print('Incorrect email or password')
+            self.login()
+        else:
+            print('Hello', data[0][1])
+
 
 # Run the app
 obj = Flipkart()
